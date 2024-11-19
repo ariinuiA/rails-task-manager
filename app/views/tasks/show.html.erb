@@ -1,7 +1,21 @@
 <div class="container">
-  <h1 class="fw-bold">My tasks</h1>
-  <p>Title: <%= @task.title %></p>
-  <p>Description: <%= @task.details %></p>
+  <div class="mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="fw-bold"><%= @task.title %></h1>
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        <i class="fa-solid fa-pen"></i>
+        <%= link_to "Edit this task", edit_task_path(@task.id), class: "text-decoration-none" %>
+      </button>
 
-  <%= link_to "edit", edit_task_path(@task.id) %>
+    </div>
+    <li class="list-group-item list-group-item-secondary"><%= @task.details %></li>
+  </div>
+
+  <% if @task.completed %>
+    <p>This task is complete.</p>
+  <% else %>
+    <p>This task is not completed yet.</p>
+  <% end %>
+
+  <%= link_to "Back to list", tasks_path, class: "text-decoration-none" %>
 </div>
