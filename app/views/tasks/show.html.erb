@@ -1,5 +1,7 @@
-<h1>Show</h1>
-<p>Title: <%= @task.title %></p>
-<p>Description: <%= @task.details %></p>
+<div class="container">
+  <h1 class="fw-bold">My tasks</h1>
+  <p>Title: <%= @task.title %></p>
+  <p>Description: <%= @task.details %></p>
 
-<%= link_to "edit", edit_task_path(@task.id) %>
+  <%= link_to "edit", edit_task_path(@task.id) %>
+</div>
